@@ -35,14 +35,16 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        //tasks: ['newer:jshint:all'],
+        tasks: [],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
       },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'karma']
+        //tasks: ['newer:jshint:test', 'karma']
+        tasks: []
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
@@ -349,7 +351,10 @@ module.exports = function (grunt) {
     karma: {
       unit: {
         configFile: 'test/karma.conf.js',
-        singleRun: true
+        runnerPort: 9000,
+        singleRun: true,
+        browsers: ['PhantomJS'],
+        logLevel: 'ERROR'
       }
     }
   });
