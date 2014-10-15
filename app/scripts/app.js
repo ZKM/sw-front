@@ -20,9 +20,14 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/main.html'
       })
+
+      .when('/edges', {
+        templateUrl: 'views/edges.html',
+        controller: 'EdgesController'
+      })
+
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
