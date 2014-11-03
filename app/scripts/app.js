@@ -8,16 +8,22 @@
  *
  * Main module of the application.
  */
-angular
-  .module('swFrontApp', [
+
+var myApp = angular.module('swFrontApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
+    'ngTouch']);
+
+  myApp.controller('myNav', function($scope, $location) {
+      $scope.isActive = function(route) {
+          return route === $location.path();
+      }
+  });
+  
+  myApp.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html'
@@ -36,3 +42,4 @@ angular
         redirectTo: '/'
       });
   });
+
